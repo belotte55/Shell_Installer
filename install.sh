@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/05 17:40:36 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 22:56:36 by Belotte          ###   ########.fr        #
+#    Updated: 2015/08/06 23:01:26 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,6 @@
 
 echo "Installation..."
 echo "Cloning repo..."
-
-git clone https://github.com/belotte55/Shell_Installer.git
-cd Shell_Installer
 
 # zshrc
 if [ -f ~/.zshrc ]; then
