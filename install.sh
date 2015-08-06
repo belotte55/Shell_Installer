@@ -6,11 +6,9 @@
 #    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/05 17:40:36 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 21:17:15 by Belotte          ###   ########.fr        #
+#    Updated: 2015/08/06 21:20:37 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#!/bin/sh
 
 echo "Installation..."
 echo "Cloning repo..."
