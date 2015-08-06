@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/05 17:40:36 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 13:23:41 by Belotte          ###   ########.fr        #
+#    Updated: 2015/08/06 15:40:03 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,27 @@ if [[ -f ~/.zshrc ]]; then
 	read -p "File ~/.zshrc already exist. Overwrite ? (y/N) " -n 1 response
 	case $response in
 		'Y' | 'y')
-			rm ~/.zshrc
+			echo
+			read -p "Are you really sure you want replace your .zshrc ? (y/N)" \
+				-n 1 resp
+			case $resp in
+				'Y' | 'y')
+					rm ~/.zshrc
+					echo
+					;;
+				'')
+					;;
+				*)
+					echo
+					;;
+			esac
+			;;
+		'')
+			;;
+		*)
+			echo
 			;;
 	esac
-	echo
 fi
 if [[ ! -f ~/.zshrc ]]; then
 	cp srcs/zshrc srcs/zshrc.temp
@@ -47,5 +64,30 @@ if [[ -d "$path" ]]; then
 	echo "Shell files copied to $path."
 fi
 
-exit 0
+# vim
+if [[ -f ~/.vimrc ]]; then
+	read -p "Vim is already configured. Overwrite ? (y/N) " -n 1 response
+	case $response in
+		'Y' | 'y')
+			rm ~/.vimrc
+			echo
+			;;
+		'')
+			;;
+		*)
+			echo
+			;;
+	esac
+fi
+if [[ ! -f ~/.vimrc ]]; then
+	cp -r srcs/vim srcs/vim_temp
+	./configure_vim_mail srcs/vim_temp/autoload/myheader.vim
+	rm -rf ~/.vim
+#	cp -r srcs/vim ~/.vim
+	mv srcs/vim_temp ~/.vim
+	cp srcs/vimrc ~/.vimrc
+	echo 'Vim is now configured.'
+fi
 
+echo 'Done.'
+exit 0

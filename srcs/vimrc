@@ -1,0 +1,23 @@
+set background=dark
+
+"colorscheme vitam
+colorscheme mustang
+
+syntax on
+set colorcolumn=81
+set number
+set tabstop=4
+set smartindent
+set backspace=indent,eol,start
+set showmode
+set ruler
+set showcmd
+execute pathogen#infect('stuff/{}')
+set sessionoptions-=options
+"set mouse=a
+"set nu
+set autoread
+"set list
+"set lcs=trail:-,tab:>-
+source /Users/Belotte/.vim/autoload/stdheader.vim
+source /Users/Belotte/.vim/autoload/myheader.vim
