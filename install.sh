@@ -6,14 +6,13 @@
 #    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/05 17:40:36 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 23:14:21 by Belotte          ###   ########.fr        #
+#    Updated: 2015/08/06 23:45:44 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/sh -x
 
 echo "Installation..."
-echo "Cloning repo..."
 
 # zshrc
 if [ -f ~/.zshrc ]; then
@@ -89,7 +88,6 @@ if [ ! -f ~/.vimrc ]; then
 	cp -r srcs/vim srcs/vim_temp
 	./configure_vim_mail srcs/vim_temp/autoload/myheader.vim
 	rm -rf ~/.vim
-#	cp -r srcs/vim ~/.vim
 	mv srcs/vim_temp ~/.vim
 	cp srcs/vimrc ~/.vimrc
 	echo 'Vim is now configured.'
