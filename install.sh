@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/05 17:40:36 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 22:48:44 by Belotte          ###   ########.fr        #
+#    Updated: 2015/08/06 22:56:36 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ if [ -f ~/.zshrc ]; then
 			;;
 	esac
 fi
+
 if [ ! -f "~/.zshrc" ]
 then
 	cp srcs/zshrc srcs/zshrc.temp
