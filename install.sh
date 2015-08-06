@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/05 17:40:36 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 23:07:49 by Belotte          ###   ########.fr        #
+#    Updated: 2015/08/06 23:14:21 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,12 +63,13 @@ if [ ! -d "$path" ]; then
 	esac
 fi
 
-if [ -d "$path" ]; then
+if [ -d $path ]; then
 	cp -r srcs/shell_files/* $path/
 	echo "Shell files copied to $path."
 fi
 
 # vim
+
 if [ -f ~/.vimrc ]; then
 	read -p "Vim is already configured. Overwrite ? (y/N) " -n 1 response
 	case $response in
