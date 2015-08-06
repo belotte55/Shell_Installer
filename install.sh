@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/05 17:40:36 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 15:40:03 by Belotte          ###   ########.fr        #
+#    Updated: 2015/08/06 15:46:08 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ if [[ -f ~/.zshrc ]]; then
 	case $response in
 		'Y' | 'y')
 			echo
-			read -p "Are you really sure you want replace your .zshrc ? (y/N)" \
+			read -p "Are you really sure you want replace your .zshrc ? (y/N) " \
 				-n 1 resp
 			case $resp in
 				'Y' | 'y')
