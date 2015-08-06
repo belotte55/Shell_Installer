@@ -1,0 +1,45 @@
+autoload -U colors && colors
+PSEUDO=
+
+# Modification du PS1
+PS1="%{$fg[red]%}$PSEUDO%{$fg[blue]%} %{$fg[yellow]%}%~"
+PS1="$PS1 %{$fg[green]%}$%{$reset_color%} "
+
+# Modification du PATH
+PATH="/Volumes/HDD/Drive/Programmes/Shell:$PATH"
+PATH="/Volumes/HDD/Drive/Programmes/C++:$PATH"
+PATH="/Volumes/HDD/Drive/Programmes/C/Lib/includes:$PATH"
+
+# Alias
+
+alias Shell='cd /Volumes/HDD/Drive/Programmes/Shell'
+alias C='cd /Volumes/HDD/Drive/Programmes/C'
+alias C++='cd /Volumes/HDD/Drive/Programmes/C++'
+alias Documents='cd /Volumes/HDD/Drive/Programmes/Documents'
+
+alias ls='ls -G'
+alias vi='vim'
+alias compile='gcc -Wall -Wextra -Werror -o run *.c'
+alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
+alias edit="open -a \"Sublime Text\""
+
+alias Desktop="cd ~/Desktop"
+
+alias SSH="cd /Volumes/SSD/"
+alias HDD="cd /Volumes/HDD/"
+
+# Raspberry
+	# Local - 192.168.2.5
+	alias locssh='ssh pi@192.168.2.5'
+	alias locping='ping 192.168.2.5'
+	alias locftp='open afp://pi@192.168.2.5'
+
+	# Box - 192.168.1.25
+	alias boxssh='ssh pi@192.168.1.25'
+	alias boxping='ping 192.168.1.25'
+	alias boxaft='open afp://pi@192.168.1.25'
+
+	alias pirm='sudo rm /Users/Belotte/.ssh/known_hosts'
+
+# Commandes lancées au démarrage
+clear
