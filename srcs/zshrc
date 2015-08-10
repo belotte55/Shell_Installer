@@ -12,8 +12,10 @@ PATH="/Volumes/HDD/Drive/Programmes/C/Lib/includes:$PATH"
 
 # Alias
 
+alias Github='cd /Volumes/HDD/Drive/Programmes/Github'
 alias Shell='cd /Volumes/HDD/Drive/Programmes/Shell'
 alias C='cd /Volumes/HDD/Drive/Programmes/C'
+alias CLib='cd /Volumes/HDD/Drive/Programmes/C/Lib'
 alias C++='cd /Volumes/HDD/Drive/Programmes/C++'
 alias Documents='cd /Volumes/HDD/Drive/Programmes/Documents'
 
