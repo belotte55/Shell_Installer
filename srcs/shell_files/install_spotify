@@ -1,0 +1,29 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    install_spotify                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/09/13 17:39:51 by Belotte           #+#    #+#              #
+#    Updated: 2015/09/13 18:07:43 by Belotte          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+echo 'Downloading the last version.'
+curl -o spotify.zip http://download.spotify.com/SpotifyInstaller.zip > /dev/null
+echo 'Done.'
+
+echo 'Extracting archive.'
+unzip spotify.zip > /dev/null
+echo 'Done.'
+
+echo 'Installing app.'
+open 'Install Spotify.app'
+
+sleep 30
+echo 'Done.'
+
+rm -rf 'spotify.zip'
+rm -rf 'Install Spotify.app'
+echo 'Installation done. Enjoy !'
