@@ -26,6 +26,10 @@ if [[ $files == "" ]]; then
 	main=''
 fi
 
+if [[ ! -d objs ]]; then
+	mkdir objs
+fi
+
 rules='$(CC) $(FLAGS) $(LIB) $^ '"$main"' -o $@'
 
 if [[ "$1" != '' ]]; then
