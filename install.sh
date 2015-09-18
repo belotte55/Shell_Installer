@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2015/09/18 13:32:46 by Belotte          ###   ########.fr        #
+#    Updated: 2015/09/18 20:51:43 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,11 @@ tput_ended=11
 IFS=''
 home=`cd; pwd`
 
-echo $home
+if [[ -d /Applications ]]; then
+	os="OS_X"
+else
+	os="Linux"
+fi
 
 clear
 
@@ -119,7 +123,7 @@ if [[ ${values[0]} == true ]]; then
 	cp srcs/zshrc srcs/zshrc.tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	./custom_zshrc srcs/zshrc.tmp
+	$os/custom_zshrc srcs/zshrc.tmp
 	mv srcs/zshrc.tmp $home/.zshrc
 	tput cup $tput_y $tput_done
 	echo '√'
@@ -131,9 +135,9 @@ if [[ ${values[1]} == true ]]; then
 	if [[ -e $home/.vimrc ]]; then
 		rm $home/.vimrc
 	fi
-	cp srcs/vimrc ~/.vimrc
-	echo "source $home/.vim/autoload/stdheader.vim" >> ~/.vimrc
-	echo "source $home/.vim/autoload/myheader.vim" >> ~/.vimrc
+	cp srcs/vimrc $home/.vimrc
+	echo "source $home/.vim/autoload/stdheader.vim" >> $home/.vimrc
+	echo "source $home/.vim/autoload/myheader.vim" >> $home/.vimrc
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
@@ -147,7 +151,7 @@ if [[ ${values[2]} == true ]]; then
 	cp -r srcs/vim srcs/vim_tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	./configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
+	$os/configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
 	mv srcs/vim_tmp $home/.vim
 	tput cup $tput_y $tput_done
 	echo '√'
@@ -156,9 +160,7 @@ fi
 tput_y=$((tput_y+1))
 
 if [[ ${values[3]} == true ]]; then
-	if [[ -d '~/Documents/Programs/Shell' ]]; then
-		rm -rf $home/Documents/Programs/Shell/*
-	else
+	if [[ ! -d '~/Documents/Programs/Shell' ]]; then
 		mkdir -p $home/Documents/Programs/Shell
 	fi
 	cp -r srcs/shell_files/* $home/Documents/Programs/Shell/

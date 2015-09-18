@@ -4,7 +4,7 @@ S_DIR	=
 I_DIR	= -I /Users/Belotte/Documents/Programs/C/Lib/includes 
 LIB		= /Users/Belotte/Documents/Programs/C/Lib/libft.a
 FLAGS	= -Wall -Wextra -Werror $(I_DIR)
-FILES	= main_vim.c main_vimrc.c main_zshrc.c 
+FILES	= main_vimrc.c 
 SRC		= $(addprefix $(S_DIR),$(FILES))
 OBJS	= $(FILES:.c=.o)
 RM		= rm -f
