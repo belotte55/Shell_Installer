@@ -1,0 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Project_Creator                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/08/27 22:58:31 by Belotte           #+#    #+#              #
+#    Updated: 2015/08/29 09:25:28 by Belotte          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+mkdir srcs includes objs
+touch includes/header.h
+touch main.c
+Makefile_Creator
+
+echo 'Done.'
+
+exit 0

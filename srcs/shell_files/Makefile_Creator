@@ -13,38 +13,50 @@
 #****************************************************************************#
 
 s_dir='srcs/'
+o_dir='objs/'
 i_dir='-I includes/'
 main='main.c'
+home=`cd; pwd`
 files=`ls srcs/*.c 2> /dev/null | cut -d'/' -f2 | tr '\n' ' '`
 if [[ $files == "" ]]; then
 	files=`ls *.c | tr '\n' ' '`
 	s_dir=''
+	o_dir=''
 	i_dir=''
 	main=''
 fi
 
-echo 'NAME	= run
+rules='$(CC) $(FLAGS) $(LIB) $^ '"$main"' -o $@'
+
+if [[ "$1" != '' ]]; then
+	name=$1
+	if [[ "$2" == 'lib' ]]; then
+		rules='ar rc $(NAME) $(OBJS); ranlib $(NAME)'
+	fi
+else
+	name='run'
+fi
+
+echo 'NAME	= '"$name"'
 CC		= gcc
 S_DIR	= '"$s_dir"'
-I_DIR	= -I /Volumes/HDD/Drive/Programmes/C/Lib/includes '"$i_dir"'
-LIB		= /Volumes/HDD/Drive/Programmes/C/Lib/libft.a
+O_DIR	= '"$o_dir"'
+I_DIR	= -I '"$home"'/Documents/Programs/C/Lib/includes '"$i_dir"'
+LIB		= '"$home"'/Documents/Programs/C/Lib/libft.a
 FLAGS	= -Wall -Wextra -Werror $(I_DIR)
 FILES	= '"$files"'
 SRC		= $(addprefix $(S_DIR),$(FILES))
-OBJS	= $(FILES:.c=.o)
+OBJS	= $(addprefix $(O_DIR),$(FILES:.c=.o))
 RM		= rm -f
 
 all: 		$(NAME)
 
 $(NAME): 	$(OBJS)
-	#ar rc $(NAME) $(OBJS)
-	#ranlib $(NAME)
-	$(CC) $(FLAGS) $(LIB) $^ '"$main"' -o $@
-	@make clean
+	'"$rules"'
 	@echo "Done."
 
-%.o:		$(S_DIR)%.c
-	$(CC) -c $(FLAGS) $<
+$(O_DIR)%.o:		$(S_DIR)%.c
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJS)
