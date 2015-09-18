@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_vimrc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zaz <zaz@42.fr>                            +#+  +:+       +#+        */
+/*   By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/06 07:57:26 by zaz               #+#    #+#             */
-/*   Updated: 2015/09/17 22:49:28 by Belotte          ###   ########.fr       */
+/*   Created: 2015/09/17 22:37:35 by Belotte           #+#    #+#             */
+/*   Updated: 2015/09/17 22:46:27 by Belotte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int		main(int ac, char **av)
 {
-	if (ac == 1)
+	if (ac == 2)
 	{
-		ft_putstr("Usage: ./configure_vim_mail <path_of_file_to_configure>\n");
+		ft_putstr("Usage: ./configure_vimrc_user <path_of_file_to_configure> <path_of_file_with_user>")
 		return (1);
 	}
-	ft_putstr("What's your email ?\n");
-	ft_insert_at(av[1], ft_getline(), 2133);
-	return (0);
+	
 }

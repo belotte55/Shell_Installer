@@ -2,7 +2,7 @@ autoload -U colors && colors
 PSEUDO=
 
 # Modification du PS1
-PS1="%{$fg[red]%}$PSEUDO%{$fg[blue]%} %{$fg[yellow]%}%~"
+PS1="%{$fg[yellow]%}$PSEUDO%{$fg[blue]%} %{$fg[green]%}%~"
 PS1="$PS1 %{$fg[green]%}$%{$reset_color%} "
 
 ME=`whoami`

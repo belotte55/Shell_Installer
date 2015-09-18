@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2015/09/16 13:48:53 by Belotte          ###   ########.fr        #
+#    Updated: 2015/09/18 13:32:46 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ tput_y=$min_y
 tput_done=36
 tput_ended=11
 IFS=''
+home=`cd; pwd`
+
+echo $home
 
 clear
 
@@ -37,7 +40,7 @@ echo '- ~/Documents/Programmes/Shell  [ ]'
 echo ''
 echo 'Press ENTER to valid.'
  
-if [[ ! -e ~/.zshrc ]]; then
+if [[ ! -e $home/.zshrc ]]; then
 	values[0]=true
 	tput cup $((tput_y+0)) $tput_x
 	echo 'X'
@@ -45,7 +48,7 @@ else
 	values[0]=false
 fi
 
-if [[ ! -e ~/.vimrc ]]; then
+if [[ ! -e $home/.vimrc ]]; then
 	values[1]=true
 	tput cup $((tput_y+1)) $tput_x
 	echo 'X'
@@ -53,7 +56,7 @@ else
 	values[1]=false
 fi
 
-if [[ ! -d ~/.vim ]]; then
+if [[ ! -d $home/.vim ]]; then
 	values[2]=true
 	tput cup $((tput_y+2)) $tput_x
 	echo 'X'
@@ -61,7 +64,7 @@ else
 	values[2]=false
 fi
 
-if [[ ! -d ~/Documents/Programs/Shell ]]; then
+if [[ ! -d $home/Documents/Programs/Shell ]]; then
 	values[3]=true
 	tput cup $((tput_y+3)) $tput_x
 	echo 'X'
@@ -110,14 +113,14 @@ tput cup $tput_ended 0
 echo '                             '
 
 if [[ ${values[0]} == true ]]; then
-	if [[ -e ~/.zshrc ]]; then
-		rm ~/.zshrc
+	if [[ -e $home/.zshrc ]]; then
+		rm $home/.zshrc
 	fi
 	cp srcs/zshrc srcs/zshrc.tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
 	./custom_zshrc srcs/zshrc.tmp
-	mv srcs/zshrc.tmp ~/.zshrc
+	mv srcs/zshrc.tmp $home/.zshrc
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
@@ -125,10 +128,12 @@ fi
 tput_y=$((tput_y+1))
 
 if [[ ${values[1]} == true ]]; then
-	if [[ -e ~/.vimrc ]]; then
-		rm ~/.vimrc
+	if [[ -e $home/.vimrc ]]; then
+		rm $home/.vimrc
 	fi
 	cp srcs/vimrc ~/.vimrc
+	echo "source $home/.vim/autoload/stdheader.vim" >> ~/.vimrc
+	echo "source $home/.vim/autoload/myheader.vim" >> ~/.vimrc
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
@@ -143,7 +148,7 @@ if [[ ${values[2]} == true ]]; then
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
 	./configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
-	mv srcs/vim_tmp ~/.vim
+	mv srcs/vim_tmp $home/.vim
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
@@ -152,11 +157,11 @@ tput_y=$((tput_y+1))
 
 if [[ ${values[3]} == true ]]; then
 	if [[ -d '~/Documents/Programs/Shell' ]]; then
-		rm -rf ~/Documents/Programs/Shell/*
+		rm -rf $home/Documents/Programs/Shell/*
 	else
-		mkdir -p ~/Documents/Programs/Shell
+		mkdir -p $home/Documents/Programs/Shell
 	fi
-	cp -r srcs/shell_files/* ~/Documents/Programs/Shell/
+	cp -r srcs/shell_files/* $home/Documents/Programs/Shell/
 	tput cup $tput_y $tput_done
 	echo '√'
 fi

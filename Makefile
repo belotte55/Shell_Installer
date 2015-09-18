@@ -1,22 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: Belotte <fbellott@42.fr>                   +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/08/06 14:41:50 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/06 15:08:12 by Belotte          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME	= configure_vim_mail
+NAME	= run
 CC		= gcc
 S_DIR	= 
-I_DIR	= -I /Volumes/HDD/Drive/Programmes/C/Lib/includes 
-LIB		= /Volumes/HDD/Drive/Programmes/C/Lib/libft.a
+I_DIR	= -I /Users/Belotte/Documents/Programs/C/Lib/includes 
+LIB		= /Users/Belotte/Documents/Programs/C/Lib/libft.a
 FLAGS	= -Wall -Wextra -Werror $(I_DIR)
-FILES	= main_vim.c 
+FILES	= main_vim.c main_vimrc.c main_zshrc.c 
 SRC		= $(addprefix $(S_DIR),$(FILES))
 OBJS	= $(FILES:.c=.o)
 RM		= rm -f

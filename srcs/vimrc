@@ -19,5 +19,4 @@ set sessionoptions-=options
 set autoread
 "set list
 "set lcs=trail:-,tab:>-
-source /Users/Belotte/.vim/autoload/stdheader.vim
-source /Users/Belotte/.vim/autoload/myheader.vim
+
