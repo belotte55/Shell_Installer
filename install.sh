@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2015/09/19 13:57:58 by Belotte          ###   ########.fr        #
+#    Updated: 2015/09/19 14:01:17 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -158,7 +158,7 @@ if [[ ${values[3]} == true ]]; then
 	if [[ ! -d '~/Documents/Programs/Shell' ]]; then
 		mkdir -p $home/Documents/Programs/Shell
 	fi
-	cp -r srcs/shell_files/* $home/Documents/Programs/Shell/
+	cp -nr srcs/shell_files/* $home/Documents/Programs/Shell/
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
