@@ -5,8 +5,8 @@ PSEUDO=
 PS1="%{$fg[yellow]%}$PSEUDO%{$fg[blue]%} %{$fg[green]%}%~"
 PS1="$PS1 %{$fg[green]%}$%{$reset_color%} "
 
-ME=`whoami`
-CUSTOM_PATH="/Users/$ME/Documents/Programs"
+HOME=`cd; pwd`
+CUSTOM_PATH="$HOME/Documents/Programs"
 
 # Modification du PATH
 PATH="$CUSTOM_PATH/Shell:$PATH"

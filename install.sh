@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2015/09/18 20:51:43 by Belotte          ###   ########.fr        #
+#    Updated: 2015/09/19 13:57:58 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,15 +19,9 @@ tput_x=33
 tput_y=$min_y
 
 tput_done=36
-tput_ended=11
+tput_ended=$((max_y+2))
 IFS=''
 home=`cd; pwd`
-
-if [[ -d /Applications ]]; then
-	os="OS_X"
-else
-	os="Linux"
-fi
 
 clear
 
@@ -76,6 +70,7 @@ else
 	values[3]=false
 fi
 
+
 while true; do
 	tput cup $tput_y $tput_x
 	current_row=$tput_y-$min_y
@@ -123,7 +118,7 @@ if [[ ${values[0]} == true ]]; then
 	cp srcs/zshrc srcs/zshrc.tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	$os/custom_zshrc srcs/zshrc.tmp
+	./custom_zshrc srcs/zshrc.tmp
 	mv srcs/zshrc.tmp $home/.zshrc
 	tput cup $tput_y $tput_done
 	echo '√'
@@ -151,7 +146,7 @@ if [[ ${values[2]} == true ]]; then
 	cp -r srcs/vim srcs/vim_tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	$os/configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
+	./configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
 	mv srcs/vim_tmp $home/.vim
 	tput cup $tput_y $tput_done
 	echo '√'
