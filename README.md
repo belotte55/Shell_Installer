@@ -16,7 +16,7 @@ chsh -s $(which zsh)
 #### 09.16.15
 Interface updated.
 ## WARNING
-This installer has been created for OS X. Linux's users have to modify some things:
+This installer has been created for OS X. Linux's users have to modify some stuff:
 ```
 on ~/.zshrc, line 2:
 	fill with your pseudo: PSEUDO="<your pseudo here>"
