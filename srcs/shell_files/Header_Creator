@@ -1,0 +1,39 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Header_Creator                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/10/05 15:28:55 by Belotte           #+#    #+#              #
+#    Updated: 2015/10/05 16:03:43 by Belotte          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#!/bin/sh
+
+filename=""
+
+if [[ $# -eq 0 ]]; then
+	echo 'Usage: ./Header_Creator <header_name>'
+	exit 1
+fi
+
+path="$1"
+filename_h=`echo "$1" | rev | cut -d'/' -f1 | rev`
+ext=`echo "$filename_h" | rev | cut -d'.' -f1 | rev`
+if [[ ! "$ext" == "h" ]]; then
+	filename_h="$filename_h.h"
+	path="$path.h"
+fi
+filename=`echo "$filename_h" | cut -d'.' -f1`
+upper_filename=`echo "$filename" | tr '[:lower:]' '[:upper:]'`
+
+touch $path
+
+echo "#ifndef __${upper_filename}_H__" > $path
+echo "# define __${upper_filename}_H__" >> $path
+echo "" >> $path
+echo "#endif" >> $path
+
+exit 0
