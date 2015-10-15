@@ -1,7 +1,5 @@
-#!/bin/bash 
-
 #****************************************************************************#
-#*																			*#
+#*																		*#
 #*														:::		 ::::::::	*#
 #*	Create_Makefile									  :+:	   :+:	  :+:	*#
 #*													+:+ +:+			+:+		*#
@@ -12,11 +10,14 @@
 #*																			*#
 #****************************************************************************#
 
+#!/bin/bash 
+
 s_dir='srcs/'
 o_dir='objs/'
 i_dir='-I includes/'
 main='main.c'
 home=`cd; pwd`
+libs="$home/Documents/Programs/C/Lib"
 files=`ls srcs/*.c 2> /dev/null | cut -d'/' -f2 | tr '\n' ' '`
 if [[ $files == "" ]]; then
 	files=`ls *.c | tr '\n' ' '`
@@ -34,23 +35,26 @@ rules='$(CC) $(FLAGS) $(LIB) $^ '"$main"' -o $@'
 
 if [[ "$1" != '' ]]; then
 	name=$1
-	if [[ "$2" == 'lib' ]]; then
-		rules='ar rc $(NAME) $(OBJS); ranlib $(NAME)'
-	fi
+	rules='ar rc $(NAME) $(OBJS); ranlib $(NAME)'
 else
 	name='run'
 fi
+
+#I_DIR	= -I '"$home"'/Documents/Programs/C/Lib/includes '"$i_dir"'
+#LIB		= '"$home"'/Documents/Programs/C/Lib/libft.a
 
 echo 'NAME	= '"$name"'
 CC		= gcc
 S_DIR	= '"$s_dir"'
 O_DIR	= '"$o_dir"'
-I_DIR	= -I '"$home"'/Documents/Programs/C/Lib/includes '"$i_dir"'
-LIB		= '"$home"'/Documents/Programs/C/Lib/libft.a
-FLAGS	= -Wall -Wextra -Werror $(I_DIR)
+I_DIR	= '"$i_dir"'
+LIBS_DIR= -L '"$libs"' -I '"$libs"'
+FLAGS	= -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
 FILES	= '"$files"'
+LIBS_F	= str
 SRC		= $(addprefix $(S_DIR),$(FILES))
 OBJS	= $(addprefix $(O_DIR),$(FILES:.c=.o))
+LIBS	= $(addprefix "-l",$(LIBS_F))
 RM		= rm -f
 
 all: 		$(NAME)

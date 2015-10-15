@@ -1,0 +1,52 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    lib                                                :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/10/15 22:00:27 by Belotte           #+#    #+#              #
+#    Updated: 2015/10/15 23:09:35 by Belotte          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#!/bin/sh
+
+path=`cd; pwd`
+path="$path/Documents/Programs/C/Lib"
+
+if [[ "$1" == "install" ]]; then
+	if [[ "$2" != "" ]]; then
+		if [[ ! -f "lib$2.a" ]]; then
+			echo "lib$2.a not found."
+			echo 'Abort.'
+			exit 1
+		elif [[ ! -f "includes/$2.h" ]]; then
+			echo "includes/$2.h not found."
+			echo 'Abort.'
+			exit 1
+		fi
+		if [[ -f "$path/lib$2.a" || -f "$path/$2.h" ]]; then
+			read -n1 -p "Library $2 already exist. Override ? (Y/n) " res
+			echo ''
+			case $res in
+				[Nn]*)	echo 'Abort.'
+						exit 1;;
+				*)		;;
+			esac
+			rm $path/lib$2.a $path/$2.h 2> /dev/null
+		fi
+		cp includes/* $path
+		cp *.a $path
+		echo 'Library $2 installed.'
+	fi
+fi
+
+if [[ "$1" == "remove" ]]; then
+	if [[ "$2" != "" ]]; then
+		rm $path/lib$2.a $path/$2.h 2> /dev/null
+		echo 'Done.'
+	fi
+fi
+
+exit 0
