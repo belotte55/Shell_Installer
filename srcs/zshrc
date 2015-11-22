@@ -1,9 +1,24 @@
 autoload -U colors && colors
 PSEUDO=
 
+# Don't touch !
+black='\[\e[0;30m\]'
+red='\[\e[0;31m\]'
+green='\[\e[0;32m\]'
+yellow='\[\e[0;33m\]'
+blue='\[\e[0;34m\]'
+purple='\[\e[0;35m\]'
+cyan='\[\e[0;36m\]'
+white='\[\e[0;37m\]'
+
+if [ "$SHELL" = '/bin/bash' ]; then
+	PS1="${yellow}${PSEUDO}${blue}${green} \w ${blue}\$${white} "
+else
+	PS1="%{$fg[yellow]%}$PSEUDO%{$fg[blue]%} %{$fg[green]%}%~"
+	PS1="$PS1 %{$fg[green]%}$%{$reset_color%} "
+fi
+
 # Modification du PS1
-PS1="%{$fg[yellow]%}$PSEUDO%{$fg[blue]%} %{$fg[green]%}%~"
-PS1="$PS1 %{$fg[green]%}$%{$reset_color%} "
 
 HOME=`cd; pwd`
 CUSTOM_PATH="$HOME/Documents/Programs"
