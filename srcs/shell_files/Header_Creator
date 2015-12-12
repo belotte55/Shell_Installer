@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/05 15:28:55 by Belotte           #+#    #+#              #
-#    Updated: 2015/10/05 16:03:43 by Belotte          ###   ########.fr        #
+#    Updated: 2015/11/30 22:51:06 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,8 @@ upper_filename=`echo "$filename" | tr '[:lower:]' '[:upper:]'`
 
 touch $path
 
-echo "#ifndef __${upper_filename}_H__" > $path
-echo "# define __${upper_filename}_H__" >> $path
+echo "#ifndef ${upper_filename}_H" > $path
+echo "# define ${upper_filename}_H" >> $path
 echo "" >> $path
 echo "#endif" >> $path
 

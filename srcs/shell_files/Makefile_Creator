@@ -1,23 +1,37 @@
-#****************************************************************************#
-#*																		*#
-#*														:::		 ::::::::	*#
-#*	Create_Makefile									  :+:	   :+:	  :+:	*#
-#*													+:+ +:+			+:+		*#
-#*	by: Belotte <belotte1355@gmail.com>			  +#+  +:+		 +#+		*#
-#*												+#+#+#+#+#+	  +#+			*#
-#*	Created: 2015/06/20 15:02:47 by Belotte			 #+#	#+#				*#
-#*	Updated: 2015/06/20 15:02:47 by Belotte			 ###  ########.fr		*#
-#*																			*#
-#****************************************************************************#
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile_Creator                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/12/11 11:35:21 by Belotte           #+#    #+#              #
+#    Updated: 2015/12/11 11:36:05 by Belotte          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-#!/bin/bash 
+#!/bin/bash
+
+# Don't touch !
+white='\033[0;1m'
+black='\033[0;30m'
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+blue='\033[0;34m'
+pink='\033[0;35m'
+cyan='\033[0;36m'
+grey='\033[0;37m'
 
 s_dir='srcs/'
 o_dir='objs/'
 i_dir='-I includes/'
 main='main.c'
+mainodir='$(O_DIR)main.o'
 home=`cd; pwd`
-libs="$home/Documents/Programs/C/Lib"
+lib=`ls *.a 2> /dev/null | cut -d'.' -f1 | cut -d'b' -f2`
+lib=`echo $lib`
+main_rule="\n"'$(O_DIR)main.o:	main.c'"\n\t"'@echo "'$yellow'$<'$grey'"\n\t@echo "↪︎-   '$green'$@'$white'"'"\n\t"'@$(CC) $(FLAGS) -c $< -o $@'"\n"
 files=`ls srcs/*.c 2> /dev/null | cut -d'/' -f2 | tr '\n' ' '`
 if [[ $files == "" ]]; then
 	files=`ls *.c | tr '\n' ' '`
@@ -25,52 +39,59 @@ if [[ $files == "" ]]; then
 	o_dir=''
 	i_dir=''
 	main=''
+	main_rule=''
+	mainodir=''
+else
+	if [[ ! -d objs ]]; then
+		mkdir objs
+	fi
 fi
 
-if [[ ! -d objs ]]; then
-	mkdir objs
-fi
 
-rules='$(CC) $(FLAGS) $(LIB) $^ '"$main"' -o $@'
+rules='$(CC) $(FLAGS) $(LIBS) $^ -o $@'
 
 if [[ "$1" != '' ]]; then
 	name=$1
-	rules='ar rc $(NAME) $(OBJS); ranlib $(NAME)'
+	rules='ar rc $(NAME) $(OBJS); ranlib $@'
+	main_rule=''
+	mainodir=''
 else
 	name='run'
 fi
 
 #I_DIR	= -I '"$home"'/Documents/Programs/C/Lib/includes '"$i_dir"'
 #LIB		= '"$home"'/Documents/Programs/C/Lib/libft.a
+#LIBS_DIR= -L '"$libs"' -I '"$libs"'
 
 echo 'NAME	= '"$name"'
 CC		= gcc
 S_DIR	= '"$s_dir"'
 O_DIR	= '"$o_dir"'
 I_DIR	= '"$i_dir"'
-LIBS_DIR= -L '"$libs"' -I '"$libs"'
 FLAGS	= -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
 FILES	= '"$files"'
-LIBS_F	= str
+LIBS_F	= '"$lib"'
 SRC		= $(addprefix $(S_DIR),$(FILES))
 OBJS	= $(addprefix $(O_DIR),$(FILES:.c=.o))
-LIBS	= $(addprefix "-l",$(LIBS_F))
+LIBS	= $(addprefix -L. -l,$(LIBS_F))
 RM		= rm -f
 
 all: 		$(NAME)
 
-$(NAME): 	$(OBJS)
-	'"$rules"'
-	@echo "Done."
+$(NAME): 	$(OBJS) '$mainodir'
+	@'"$rules"'
+	@echo "./'$blue'$(NAME)'$white' created."
+	@echo "'$white'Done."
 
 $(O_DIR)%.o:		$(S_DIR)%.c
-	$(CC) $(FLAGS) -c $< -o $@
-
+	@echo "'$yellow'$<'$grey'"\n\t@echo "↪︎- '$green'$@'$white'"
+	@$(CC) $(FLAGS) -c $< -o $@
+'$main_rule'
 clean:
 	@$(RM) $(OBJS)
 
 fclean: 	clean
 	@$(RM) $(NAME)
-	@echo "Clear."
+	@echo "'$white'Clear."
 
 re:			fclean all' > Makefile

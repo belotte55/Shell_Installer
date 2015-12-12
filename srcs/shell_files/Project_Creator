@@ -6,12 +6,13 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/27 22:58:31 by Belotte           #+#    #+#              #
-#    Updated: 2015/08/29 09:25:28 by Belotte          ###   ########.fr        #
+#    Updated: 2015/11/30 22:50:34 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 mkdir srcs includes objs
-touch includes/header.h
+dir_name=`basename "$PWD"`
+Header_Creator includes/${dir_name}.h
 touch main.c
 Makefile_Creator
 

@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 15:25:20 by Belotte           #+#    #+#              #
-#    Updated: 2015/09/16 15:31:53 by Belotte          ###   ########.fr        #
+#    Updated: 2015/12/12 11:23:11 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,4 +20,4 @@ fi
 
 git add .
 git commit -m "$msg"
-git push
+git push origin master
