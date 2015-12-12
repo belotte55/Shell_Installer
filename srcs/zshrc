@@ -14,7 +14,7 @@ white='\[\e[0;37m\]'
 if [ "$SHELL" = '/bin/bash' ]; then
 	PS1="${yellow}${PSEUDO}${blue}${green} \w ${blue}\$${white} "
 else
-	PS1="%{$fg[yellow]%}$PSEUDO%{$fg[blue]%} %{$fg[green]%}%~"
+	PS1="%{$fg[red]%}$PSEUDO%{$fg[blue]%} %{$fg[green]%}%~"
 	PS1="$PS1 %{$fg[green]%}$%{$reset_color%} "
 fi
 

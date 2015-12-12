@@ -1,22 +1,46 @@
-set background=dark
+" **************************************************************************** "
+"                                                                              "
+"                                                         :::      ::::::::    "
+"    .vimrc                                             :+:      :+:    :+:    "
+"                                                     +:+ +:+         +:+      "
+"    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         "
+"                                                 +#+#+#+#+#+   +#+            "
+"    Created: 2015/12/06 17:03:23 by Belotte           #+#    #+#              "
+"    Updated: 2015/12/12 11:21:40 by fbellott         ###   ########.fr        "
+"                                                                              "
+" **************************************************************************** "
 
-"colorscheme vitam
+set background=dark
 colorscheme mustang
 
 syntax on
 set colorcolumn=81
 set number
 set tabstop=4
+filetype plugin indent on
 set smartindent
+set autoindent
+set cindent
 set backspace=indent,eol,start
 set showmode
 set ruler
 set showcmd
 execute pathogen#infect('stuff/{}')
 set sessionoptions-=options
-"set mouse=a
-"set nu
 set autoread
-"set list
-"set lcs=trail:-,tab:>-
+hi SpecialKey ctermfg=66 guifg=#649A9A ctermbg=NONE
+hi Nontext ctermfg=66 guifg=#649A9A ctermbg=NONE
+set listchars=eol:$,tab:\|\ ,trail:.
+set list
 
+inoremap {<Enter>	{<CR>}<Up><Enter>
+inoremap [	[]<Left>
+inoremap (	()<Left>
+inoremap '	''<Left>
+inoremap "	""<Left>
+autocmd BufRead	*.[ch] inoremap #in		#include<Space>
+
+hi! sp ctermbg=NONE guibg=NONE ctermfg=red guifg=red
+
+autocmd BufRead 			* match sp /^[^(\#)]]]\ \{2,}\|\t\+\n\|\ \+\n/
+autocmd BufRead 			*.[ch] match sp /^[^(\/\*)]]]\ \{2,}\|\t\+\n\|\ \+\n/
