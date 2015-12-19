@@ -6,7 +6,7 @@
 #    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 11:35:21 by Belotte           #+#    #+#              #
-#    Updated: 2015/12/19 12:51:03 by fbellott         ###   ########.fr        #
+#    Updated: 2015/12/19 13:29:49 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,7 @@ fclean: 	clean
 	@$(RM) $(NAME)
 	@echo "'$white'Clear."
 
-re:			fclean all' > Makefile
+re:			fclean all
 
-.PHONY: re clean fclean all
+.PHONY: re clean fclean all' > Makefile
+
