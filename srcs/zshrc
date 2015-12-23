@@ -1,5 +1,6 @@
 autoload -U colors && colors
 PSEUDO=
+export MAIL="`whoami`@student.42.fr"
 
 # Don't touch !
 black='\[\e[0;30m\]'
@@ -11,11 +12,16 @@ purple='\[\e[0;35m\]'
 cyan='\[\e[0;36m\]'
 white='\[\e[0;37m\]'
 
+pseudo_color=$red
+date_color=$green
+path_color=$yellow
+last_color=$blue
+
 if [ "$SHELL" = '/bin/bash' ]; then
-	PS1="${yellow}${PSEUDO}${blue}${green} \w ${blue}\$${white} "
+	PS1="${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}\w ${last_color}⨕${white} "
 else
-	PS1="%{$fg[red]%}$PSEUDO%{$fg[blue]%} %{$fg[green]%}%~"
-	PS1="$PS1 %{$fg[green]%}$%{$reset_color%} "
+	PS1="%{$fg[pseudo_color]%}$PSEUDO%{$fg[date_color]%} [%T] %{$fg[path_color]%}%~"
+	PS1="$PS1 %{$fg[blue]%}⨕%{$reset_color%} "
 fi
 
 # Modification du PS1
@@ -40,7 +46,8 @@ alias ls='ls -G'
 alias vi='vim'
 alias compile='gcc -Wall -Wextra -Werror -o run *.c'
 alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
-alias edit="open -a \"Sublime Text\""
+alias edit="open -a \"Atom\""
+alias mkae="make"
 
 alias Desktop="cd ~/Desktop"
 
