@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    lookforname                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fbellott <fbellott@42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/07/09 01:12:34 by fbellott          #+#    #+#              #
+#    Updated: 2015/07/09 01:12:34 by fbellott         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+opts=$( getopt -o r)
+
+case "$1" in
+	-r)	ldapsearch -LLLQ "(sn=$2*)" sn givenName mail mobile | sed 's/sn:/Nom:/g' | sed 's/mail:/Mail:/g' | sed 's/givenName:/Prenom:/g' | sed 's/mobile:/Portable:/g' | sed '/dn: uid/d'
+		;;
+	*)	ldapsearch -LLLQ "(sn=$1)" sn givenName mail mobile | sed 's/sn:/Nom:/g' | sed 's/mail:/Mail:/g' | sed 's/givenName:/Prenom:/g' | sed 's/mobile:/Portable:/g' | sed '/dn: uid/d'
+		;;
+esac
+exit 0
