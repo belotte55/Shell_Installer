@@ -1,4 +1,4 @@
-NAME	= run
+NAME	= libft.a
 CC		= gcc
 S_DIR	= srcs/
 O_DIR	= objs/
@@ -13,17 +13,12 @@ RM		= rm -f
 
 all: 		$(NAME)
 
-$(NAME): 	$(OBJS) $(O_DIR)main.o
-	@$(CC) $(FLAGS) $(LIBS) $^ -o $@
+$(NAME): 	$(OBJS) 
+	@ar rc $(NAME) $(OBJS); ranlib $@
 	@echo "./[0;34m$(NAME)[0;1m created."
 	@echo "[0;1mDone."
 
 $(O_DIR)%.o:		$(S_DIR)%.c
-	@echo "[0;33m$<[0;37m"
-	@echo "↪︎- [0;32m$@[0;1m"
-	@$(CC) $(FLAGS) -c $< -o $@
-
-$(O_DIR)main.o: main.c
 	@echo "[0;33m$<[0;37m"
 	@echo "↪︎- [0;32m$@[0;1m"
 	@$(CC) $(FLAGS) -c $< -o $@
