@@ -1,0 +1,254 @@
+Process:         run [83904]
+Path:            /Volumes/Data/nfs/zfs-student-2/users/fbellott/Documents/Programs/42/C/libfile/run
+Load Address:    0x101db7000
+Identifier:      run
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [82162]
+
+Date/Time:       2015-12-24 12:01:47.945 +0100
+Launch Time:     2015-12-24 12:01:44.991 +0100
+OS Version:      Mac OS X 10.10.5 (14F1509)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 7.1.1 (7B1005)
+----
+
+leaks Report Version:  2.0
+Process 83904: 358 nodes malloced for 40 KB
+Process 83904: 9 leaks for 12352 total leaked bytes.
+Leak: 0x7f9e69d00090  size=64  zone: DefaultMallocZone_0x101dbc000  length: 36  "ile);
+	while (TRUE);
+	return (0);
+}
+"
+Leak: 0x7f9e6a801200  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1136  "/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/23 13:41:50 by fbellott          #+#    #+#             */
+/*   Updated: 2015/12/24 11:52:36 by fbellott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libfile.h"
+
+int	main(int ac, char **av)
+{
+	t_file	*file;
+
+	if (ac != 2)
+		return (1);
+	file = ft_open(av[1], R);
+	if (!file)
+		return (1);
+	if (!file->read(file, TRUE))
+		return (1);
+	ft_free_file(file);
+	while (TRUE);
+	return (0);
+}
+"
+Leak: 0x7f9e6a801800  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1136  "
+}
+;)0( nruter	
+;)EURT( elihw	
+;)elif(elif_eerf_tf	
+;)1( nruter		
+))EURT ,elif(daer>-elif!( fi	
+;)1( nruter		
+)elif!( fi	
+;)R ,]1[va(nepo_tf = elif	
+;)1( nruter		
+)2 =! ca( fi	
+
+;elif*	elif_t	
+{
+)va** rahc ,ca tni(niam	tni
+
+"h.elifbil" edulcni#
+
+/* ************************************************************************** */
+/*                                                                            */
+/*       rf.########   ###         ttollebf yb 63:25:11 42/21/5102 :detadpU   */
+/*             #+#    #+#          ttollebf yb 05:14:31 32/21/5102 :detaerC   */
+/*           +#+   +#+#+#+#+#+                                                */
+/*        +#+       +:+  +#+          >rf.24.tneduts@ttollebf< ttollebf :yB   */
+/*     +:+         +:+ +:+                                                    */
+/*   :+:    :+:      :+:                                             c.niam   */
+/*   ::::::::      :::                                                        */
+/*                                                                            */
+/* ************************************************************************** */"
+Leak: 0x7f9e6a801e00  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1136  "/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/23 13:41:50 by fbellott          #+#    #+#             */
+/*   Updated: 2015/12/24 11:52:36 by fbellott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libfile.h"
+
+int	main(int ac, char **av)
+{
+	t_file	*file;
+
+	if (ac != 2)
+		return (1);
+	file = ft_open(av[1], R);
+	if (!file)
+		return (1);
+	if (!file->read(file, TRUE))
+		return (1);
+	ft_free_file(file);
+	while (TRUE);
+	return (0);
+}
+"
+Leak: 0x7f9e6a802400  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1136  "
+}
+;)0( nruter	
+;)EURT( elihw	
+;)elif(elif_eerf_tf	
+;)1( nruter		
+))EURT ,elif(daer>-elif!( fi	
+;)1( nruter		
+)elif!( fi	
+;)R ,]1[va(nepo_tf = elif	
+;)1( nruter		
+)2 =! ca( fi	
+
+;elif*	elif_t	
+{
+)va** rahc ,ca tni(niam	tni
+
+"h.elifbil" edulcni#
+
+/* ************************************************************************** */
+/*                                                                            */
+/*       rf.########   ###         ttollebf yb 63:25:11 42/21/5102 :detadpU   */
+/*             #+#    #+#          ttollebf yb 05:14:31 32/21/5102 :detaerC   */
+/*           +#+   +#+#+#+#+#+                                                */
+/*        +#+       +:+  +#+          >rf.24.tneduts@ttollebf< ttollebf :yB   */
+/*     +:+         +:+ +:+                                                    */
+/*   :+:    :+:      :+:                                             c.niam   */
+/*   ::::::::      :::                                                        */
+/*                                                                            */
+/* ************************************************************************** */"
+Leak: 0x7f9e6a802a00  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1135  "/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/23 13:41:50 by fbellott          #+#    #+#             */
+/*   Updated: 2015/12/24 11:52:36 by fbellott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libfile.h"
+
+int	main(int ac, char **av)
+{
+	t_file	*file;
+
+	if (ac != 2)
+		return (1);
+	file = ft_open(av[1], R);
+	if (!file)
+		return (1);
+	if (!file->read(file, TRUE))
+		return (1);
+	ft_free_file(file);
+	while (TRUE);
+	return (0);
+}"
+Leak: 0x7f9e6a803000  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1135  "/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/23 13:41:50 by fbellott          #+#    #+#             */
+/*   Updated: 2015/12/24 11:52:36 by fbellott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libfile.h"
+
+int	main(int ac, char **av)
+{
+	t_file	*file;
+
+	if (ac != 2)
+		return (1);
+	file = ft_open(av[1], R);
+	if (!file)
+		return (1);
+	if (!file->read(file, TRUE))
+		return (1);
+	ft_free_file(file);
+	while (TRUE);
+	return (0);
+}"
+Leak: 0x7f9e6a803600  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1132  "/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/23 13:41:50 by fbellott          #+#    #+#             */
+/*   Updated: 2015/12/24 11:52:36 by fbellott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libfile.h"
+int	main(int ac, char **av)
+{
+	t_file	*file;
+	if (ac != 2)
+		return (1);
+	file = ft_open(av[1], R);
+	if (!file)
+		return (1);
+	if (!file->read(file, TRUE))
+		return (1);
+	ft_free_file(file);
+	while (TRUE);
+	return (0);
+}"
+Leak: 0x7f9e6a803c00  size=1536  zone: DefaultMallocZone_0x101dbc000  length: 1132  "/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/23 13:41:50 by fbellott          #+#    #+#             */
+/*   Updated: 2015/12/24 11:52:36 by fbellott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libfile.h"
+int	main(int ac, char **av)
+{
+	t_file	*file;
+	if (ac != 2)
+		return (1);
+	file = ft_open(av[1], R);
+	if (!file)
+		return (1);
+	if (!file->read(file, TRUE))
+		return (1);
+	ft_free_file(file);
+	while (TRUE);
+	return (0);
+}"
