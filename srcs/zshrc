@@ -32,7 +32,7 @@ last_color=$blue
 
 # Modification du PS1
 if [ "$SHELL" = '/bin/bash' ]; then
-	PS1="\[${pseudo_color}\]${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
+	PS1="${pseudo_color}${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
 	alias ls='ls --color'
 else
 	PS1="${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
