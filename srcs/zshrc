@@ -3,28 +3,28 @@ PSEUDO=
 export MAIL="`whoami`@student.42.fr"
 
 # Don't touch !
-black='\[\e[0;30m\]'
-red='\[\e[0;31m\]'
-green='\[\e[0;32m\]'
-yellow='\[\e[0;33m\]'
-blue='\[\e[0;34m\]'
-purple='\[\e[0;35m\]'
-cyan='\[\e[0;36m\]'
-white='\[\e[0;37m\]'
+black=$'\e[0;30m'
+red=$'\e[0;31m'
+green=$'\e[0;32m'
+yellow=$'\e[0;33m'
+blue=$'\e[0;34m'
+purple=$'\e[0;35m'
+cyan=$'\e[0;36m'
+white=$'\e[0;37m'
+reset=$'\e[0m'
 
 pseudo_color=$red
 date_color=$green
 path_color=$yellow
 last_color=$blue
 
-if [ "$SHELL" = '/bin/bash' ]; then
-	PS1="${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}\w ${last_color}⨕${white} "
-else
-	PS1="%{$fg[pseudo_color]%}$PSEUDO%{$fg[date_color]%} [%T] %{$fg[path_color]%}%~"
-	PS1="$PS1 %{$fg[blue]%}⨕%{$reset_color%} "
-fi
-
 # Modification du PS1
+if [ "$SHELL" = '/bin/bash' ]; then
+	PS1="${pseudo_color}${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
+else
+	PS1="${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
+	PS1="$PS1 ${last_color}⨕%{$reset%} "
+fi
 
 HOME=`cd; pwd`
 CUSTOM_PATH="$HOME/Documents/Programs"
@@ -35,7 +35,6 @@ PATH="$CUSTOM_PATH/C++:$PATH"
 PATH="$CUSTOM_PATH/C/Lib/includes:$PATH"
 
 # Alias
-
 alias Github="cd $CUSTOM_PATH/Github"
 alias Shell="cd $CUSTOM_PATH/Shell"
 alias C="cd $CUSTOM_PATH/C"
