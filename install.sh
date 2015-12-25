@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2015/09/19 14:01:17 by Belotte          ###   ########.fr        #
+#    Updated: 2015/12/25 20:43:57 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ echo '- ~/.vim                        [ ]'
 echo '- ~/Documents/Programmes/Shell  [ ]'
 echo ''
 echo 'Press ENTER to valid.'
- 
+
 if [[ ! -e $home/.zshrc ]]; then
 	values[0]=true
 	tput cup $((tput_y+0)) $tput_x
@@ -146,7 +146,7 @@ if [[ ${values[2]} == true ]]; then
 	cp -r srcs/vim srcs/vim_tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	./configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
+#	./configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
 	mv srcs/vim_tmp $home/.vim
 	tput cup $tput_y $tput_done
 	echo '√'
