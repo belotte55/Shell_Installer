@@ -23,7 +23,7 @@ if [ "$SHELL" = '/bin/bash' ]; then
 	PS1="${pseudo_color}${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
 else
 	PS1="${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
-	PS1="$PS1 ${last_color}⨕%{$reset%} "
+	PS1="$PS1 ${last_color}⨕${reset} "
 fi
 
 HOME=`cd; pwd`
