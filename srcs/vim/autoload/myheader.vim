@@ -6,7 +6,7 @@
 "    By: zaz <zaz@staff.42.fr>                      +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2013/06/15 12:45:56 by zaz               #+#    #+#              "
-"    Updated: 2015/12/25 20:43:02 by Belotte          ###   ########.fr        "
+"    Updated: 2015/12/25 20:46:02 by Belotte          ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -57,11 +57,11 @@ let s:marginlen		= 5
 let s:contentlen	= s:linelen - (3 * s:marginlen - 1) - strlen(s:asciiart[0])
 
 function s:trimlogin ()
-	return "$USER"
+	return $USER
 endfunction
 
 function s:trimemail ()
-	return "$MAIL"
+	return $MAIL
 endfunction
 
 function s:midgap ()
