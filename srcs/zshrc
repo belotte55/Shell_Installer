@@ -41,7 +41,11 @@ alias C="cd $CUSTOM_PATH/C"
 alias CLib="cd $CUSTOM_PATH/C/Lib"
 alias C++="cd $CUSTOM_PATH/C++"
 
-alias ls='ls -G'
+if [ "$SHELL" = '/bin/bash' ]; then
+	alias ls='ls --color'
+else
+	alias ls='ls -G'
+fi
 alias vi='vim'
 alias compile='gcc -Wall -Wextra -Werror -o run *.c'
 alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
