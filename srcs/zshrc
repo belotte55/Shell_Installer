@@ -3,15 +3,15 @@ PSEUDO=
 export MAIL="`whoami`@student.42.fr"
 
 # Don't touch !
-black=$'\e[0;30m'
-red=$'\e[0;31m'
-green=$'\e[0;32m'
-yellow=$'\e[0;33m'
-blue=$'\e[0;34m'
-purple=$'\e[0;35m'
-cyan=$'\e[0;36m'
-white=$'\e[0;37m'
-reset=$'\e[0m'
+black=$'\033[30m%'
+red=$'%{\033[31m%}'
+green=$'%{\033[32m%}'
+yellow=$'%{\033[33m%}'
+blue=$'%{\033[34m%}'
+purple=$'%{\033[35m%}'
+cyan=$'%{\033[36m%}'
+white=$'%{\033[37m%}'
+reset=$'%{\e[0m%}'
 
 pseudo_color=$red
 date_color=$green
@@ -20,7 +20,7 @@ last_color=$blue
 
 # Modification du PS1
 if [ "$SHELL" = '/bin/bash' ]; then
-	PS1="${pseudo_color}${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
+	PS1="\[${pseudo_color}\]${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
 else
 	PS1="${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
 	PS1="$PS1 ${last_color}⨕${reset} "
@@ -41,11 +41,7 @@ alias C="cd $CUSTOM_PATH/C"
 alias CLib="cd $CUSTOM_PATH/C/Lib"
 alias C++="cd $CUSTOM_PATH/C++"
 
-if [ "$SHELL" = '/bin/bash' ]; then
-	alias ls='ls --color'
-else
-	alias ls='ls -G'
-fi
+alias ls='ls -G'
 alias vi='vim'
 alias compile='gcc -Wall -Wextra -Werror -o run *.c'
 alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
@@ -53,6 +49,11 @@ alias edit="open -a \"Atom\""
 alias mkae="make"
 
 alias Desktop="cd ~/Desktop"
+alias pissh='ssh pi@192.168.1.30'
+alias 42="cd $CUSTOM_PATH/42"
 
 # Commandes lancées au démarrage
 clear
+42
+cd C
+cd libfile
