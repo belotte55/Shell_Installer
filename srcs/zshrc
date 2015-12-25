@@ -62,11 +62,6 @@ alias edit="open -a \"Atom\""
 alias mkae="make"
 
 alias Desktop="cd ~/Desktop"
-alias pissh='ssh pi@192.168.1.30'
-alias 42="cd $CUSTOM_PATH/42"
 
 # Commandes lancées au démarrage
 clear
-42
-cd C
-cd libfile
