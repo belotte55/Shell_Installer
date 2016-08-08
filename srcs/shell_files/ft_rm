@@ -1,15 +1,27 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Clone                                              :+:      :+:    :+:    #
+#    rm                                                 :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
+#    By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/09/19 14:02:17 by Belotte           #+#    #+#              #
-#    Updated: 2015/09/19 14:02:54 by Belotte          ###   ########.fr        #
+#    Created: 2016/03/17 21:31:31 by fbellott          #+#    #+#              #
+#    Updated: 2016/03/17 23:20:46 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#!/bin/sh
+#!/bin/bash
 
-git clone https://github.com/$1
+trash=/tmp/Trash/
+i=0
+
+if [ ! -d $trash ]; then
+	mkdir $trash
+fi
+
+while getopts "rf" OPTIONS; do
+	i=$(($i + 1))
+done
+
+mv ${@:$i} $trash
+echo ${@:$i} "moved to $trash"

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+ip=`ifconfig | grep 10.1`
+ip=`echo $ip | cut -d' ' -f2`
+e=`echo $ip | cut -d'.' -f2 | cut -d'1' -f1`
+if [ "$e" = "" ]; then
+	e='1'
+fi
+r=`echo $ip | cut -d'.' -f3`
+p=`echo $ip | cut -d'.' -f4`
+
+echo "e${e}r${r}p${p}"

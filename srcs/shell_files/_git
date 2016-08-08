@@ -6,18 +6,18 @@
 #    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 15:25:20 by Belotte           #+#    #+#              #
-#    Updated: 2015/12/12 11:23:11 by fbellott         ###   ########.fr        #
+#    Updated: 2016/03/12 20:10:51 by Belotte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/sh
 
 if [[ "$1" == '' ]]; then
-	msg='.'
+	msg=`date "+%d/%m/%Y - %H:%M"`
 else
-	msg="$1"
+	msg="`date \"+%d/%m/%Y - %H:%M\"` -> $1"
 fi
 
-git add .
+git add --all
 git commit -m "$msg"
-git push origin master
+git push

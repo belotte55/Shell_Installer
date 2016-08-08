@@ -6,7 +6,7 @@
 "    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2015/12/06 17:03:23 by Belotte           #+#    #+#              "
-"    Updated: 2015/12/12 11:21:40 by fbellott         ###   ########.fr        "
+"    Updated: 2016/08/08 11:04:16 by fbellott         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -32,13 +32,6 @@ hi SpecialKey ctermfg=66 guifg=#649A9A ctermbg=NONE
 hi Nontext ctermfg=66 guifg=#649A9A ctermbg=NONE
 set listchars=eol:$,tab:\|\ ,trail:.
 set list
-
-inoremap {<Enter>	{<CR>}<Up><Enter>
-inoremap [	[]<Left>
-inoremap (	()<Left>
-inoremap '	''<Left>
-inoremap "	""<Left>
-autocmd BufRead	*.[ch] inoremap #in		#include<Space>
 
 hi! sp ctermbg=NONE guibg=NONE ctermfg=red guifg=red
 

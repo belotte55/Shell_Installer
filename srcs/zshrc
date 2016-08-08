@@ -60,6 +60,7 @@ alias compile='gcc -Wall -Wextra -Werror -o run *.c'
 alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
 alias edit="open -a \"Atom\""
 alias mkae="make"
+alias rm='ft_rm'
 
 alias Desktop="cd ~/Desktop"
 
