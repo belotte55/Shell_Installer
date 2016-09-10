@@ -1,0 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    load_preferences                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/09/10 15:10:15 by fbellott          #+#    #+#              #
+#    Updated: 2016/09/10 15:36:12 by fbellott         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#!/bin/bash
+
+path='Documents/.Preferences_Saved/'
+
+cd
+mkdir -p $path
+cp -r ~/Library/Preferences/* "$path"
+echo "Preferences saved to $path."

@@ -61,6 +61,7 @@ alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
 alias edit="open -a \"Atom\""
 alias mkae="make"
 alias rm='ft_rm'
+alias logout='ft_logout'
 
 alias Desktop="cd ~/Desktop"
 
