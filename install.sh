@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2016/09/10 15:52:17 by fbellott         ###   ########.fr        #
+#    Updated: 2016/09/10 15:53:07 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -173,7 +173,7 @@ echo '	#search someone on the LDAP, by firstname|lastname|pseudo|phone'
 echo '	#use -r options to look for with only the begin of <to_look_for>'
 echo ''
 echo '_git [<commit_message>]'
-echo '	#git add --all && git commit -m `date` + commit_message && git push'
+echo '	#git add --all && git commit -m `date` + <commit_message> && git push'
 echo ''
 echo 'whereami'
 echo '	#give the cluster position. Ex: e2r3p4'
