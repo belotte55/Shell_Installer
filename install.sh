@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2016/09/10 15:38:44 by fbellott         ###   ########.fr        #
+#    Updated: 2016/09/10 15:52:17 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -165,3 +165,26 @@ if [[ ${values[3]} == true ]]; then
 fi
 
 tput cup $tput_ended 0
+
+echo '################################################################################'
+echo ''
+echo 'lookfor(name|pseudo|phone) [-r] <to_look_for>'
+echo '	#search someone on the LDAP, by firstname|lastname|pseudo|phone'
+echo '	#use -r options to look for with only the begin of <to_look_for>'
+echo ''
+echo '_git [<commit_message>]'
+echo '	#git add --all && git commit -m `date` + commit_message && git push'
+echo ''
+echo 'whereami'
+echo '	#give the cluster position. Ex: e2r3p4'
+echo ''
+echo 'save_preferences'
+echo '	#save your preferences(from System Preferences) folder.'
+echo ''
+echo 'load_preferences'
+echo '	#restore your preferences(from System Preferences) folder saved.'
+echo ''
+echo 'logout'
+echo '	#just log you out :]'
+echo ''
+echo '################################################################################'
