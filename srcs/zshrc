@@ -2,6 +2,14 @@ autoload -U colors && colors
 PSEUDO=
 export MAIL="`whoami`@student.42.fr"
 
+# Fix f.lux
+rm -rf ~/Library/Application\ Support/Flux
+rm -rf ~/Library/Containers/com.justgetflux.flux
+mkdir /tmp/Flux 2> /dev/null
+mkdir /tmp/com.justgetflux.flux 2> /dev/null
+ln -s /tmp/Flux ~/Library/Application\ Support/Flux
+ln -s /tmp/com.justgetflux.flux ~/Library/Containers/com.justgetflux.flux
+
 # Don't touch !
 if [ "$SHELL" = '/bin/bash' ]; then
 	black=$'\[\033[30m\]'
@@ -25,25 +33,29 @@ else
 	reset=$'%{\e[0m%}'
 fi
 
-pseudo_color=$red
+pseudo_color=$blue
 date_color=$green
-path_color=$yellow
+path_color=$red
 last_color=$blue
+bar_color=$black
 
-# Modification du PS1
+# Modification of PS1
 if [ "$SHELL" = '/bin/bash' ]; then
 	PS1="${pseudo_color}${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
 	alias ls='ls --color'
 else
-	PS1="${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
-	PS1="$PS1 ${last_color}⨕${reset} "
+	PS1="${bar_color}"'--------------------------------------------------------------------------------------
+'"${reset}"
+	PS1="$PS1${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
+	PS1="$PS1 ${last_color}⨕${reset}
+"
 	alias ls='ls -G'
 fi
 
 HOME=`cd; pwd`
 CUSTOM_PATH="$HOME/Documents/Programs"
 
-# Modification du PATH
+# Modification of PATH
 PATH="$CUSTOM_PATH/Shell:$PATH"
 PATH="$CUSTOM_PATH/C++:$PATH"
 PATH="$CUSTOM_PATH/C/Lib/includes:$PATH"
@@ -61,6 +73,7 @@ alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
 alias edit="open -a \"Atom\""
 alias mkae="make"
 alias rm='ft_rm'
+alias mysql='/usr/local/mysql/bin/mysql'
 alias logout='ft_logout'
 
 alias Desktop="cd ~/Desktop"
