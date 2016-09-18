@@ -94,29 +94,62 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSScrollViewShouldScrollUnderTitlebar</key>
+	<false/>
+	<key>NSTableView Columns KeyBingingTable</key>
+	<array>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATCG
+		</data>
+		<string>198</string>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATGG
+		</data>
+		<string>307</string>
+	</array>
+	<key>NSTableView Hidden Columns KeyBingingTable</key>
+	<array/>
+	<key>NSTableView Sort Ordering KeyBingingTable</key>
+	<array/>
 	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
 	<dict>
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1215 172 445 77 0 0 2560 1417 </string>
-	<key>NSWindow Frame Preferences</key>
-	<string>1596 280 924 485 0 0 2560 1417 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>269 240 918 381 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1865 499 541 301 0 0 2560 1417 </string>
+	<string>384 5 541 1412 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1399 1025 541 301 0 0 2560 1417 </string>
+	<string>82 49 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 10</key>
+	<string>679 800 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 11</key>
+	<string>700 777 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 12</key>
+	<string>721 754 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 13</key>
+	<string>742 731 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 14</key>
+	<string>763 708 541 302 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>419 143 541 301 0 0 2560 1417 </string>
+	<string>1538 456 541 302 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>587 1006 541 301 0 0 2560 1417 </string>
+	<string>1529 317 541 302 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>468 652 541 301 0 0 2560 1417 </string>
+	<string>1368 355 541 302 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>482 74 541 301 0 0 2560 1417 </string>
+	<string>574 915 541 302 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>1410 196 541 301 0 0 2560 1417 </string>
+	<string>595 892 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>616 869 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>637 846 541 302 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 9</key>
+	<string>658 823 541 302 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -128,12 +161,16 @@
 			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.44562450051307678</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.4456169605255127</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.44563031196594238</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
@@ -936,10 +973,12 @@
 			<string>/nfs/zfs-student-2/users/fbellott</string>
 		</dict>
 	</array>
-	<key>NoSyncTimeOfLastPromo</key>
-	<real>477423153.82374197</real>
-	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>479922211.120992</real>
+	<key>NoSyncInstallationId</key>
+	<string>2CEA46B5-743E-448E-880C-D30DA6AB8D0F</string>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>495205446.71778399</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -996,13 +1035,15 @@
 	<key>RightOption</key>
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
-	<true/>
+	<false/>
+	<key>SUFeedAlternateAppNameKey</key>
+	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=31</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
-	<key>SULastCheckTime</key>
-	<date>2016-03-17T15:41:25Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -7297,6 +7338,10 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.1.4</string>
+	<string>3.0.5</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
