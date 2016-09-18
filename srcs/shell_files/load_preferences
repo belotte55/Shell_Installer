@@ -6,11 +6,12 @@
 #    By: fbellott <fbellott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/10 15:10:15 by fbellott          #+#    #+#              #
-#    Updated: 2016/09/10 15:36:30 by fbellott         ###   ########.fr        #
+#    Updated: 2016/09/18 12:28:59 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
-cp -r ~/Documents/.Preferences_Saved ~/Library
-logout
+rm -rf $1/.git
+cp -r $1 ~/Library
+ft_logout
