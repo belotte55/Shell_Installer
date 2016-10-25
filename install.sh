@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte1355@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2016/09/10 15:53:07 by fbellott         ###   ########.fr        #
+#    Updated: 2016/10/26 00:03:35 by pi               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,7 @@ if [[ ${values[0]} == true ]]; then
 	cp srcs/zshrc srcs/zshrc.tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	./custom_zshrc srcs/zshrc.tmp
+#	./custom_zshrc srcs/zshrc.tmp
 	mv srcs/zshrc.tmp $home/.zshrc
 	tput cup $tput_y $tput_done
 	echo '√'
@@ -146,7 +146,6 @@ if [[ ${values[2]} == true ]]; then
 	cp -r srcs/vim srcs/vim_tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-#	./configure_vim_mail srcs/vim_tmp/autoload/myheader.vim
 	mv srcs/vim_tmp $home/.vim
 	tput cup $tput_y $tput_done
 	echo '√'
@@ -159,7 +158,6 @@ if [[ ${values[3]} == true ]]; then
 		mkdir -p $home/Documents/Programs/Shell
 	fi
 	cp -nr srcs/shell_files/* $home/Documents/Programs/Shell/
-	$home/Documents/Programs/Shell/save_preferences
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
@@ -177,9 +175,6 @@ echo '	#git add --all && git commit -m `date` + <commit_message> && git push'
 echo ''
 echo 'whereami'
 echo '	#give the cluster position. Ex: e2r3p4'
-echo ''
-echo 'save_preferences'
-echo '	#save your preferences(from System Preferences) folder.'
 echo ''
 echo 'load_preferences'
 echo '	#restore your preferences(from System Preferences) folder saved.'
