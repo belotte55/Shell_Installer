@@ -53,7 +53,7 @@ PS1="$PS1${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
 PS1="$PS1 ${last_color}⨕${reset}
 "
 
-CUSTOM_PATH="~/Documents/Programs"
+CUSTOM_PATH="/Users/$(whoami)/Documents/Programs"
 
 # Modification of PATH
 PATH="$CUSTOM_PATH/Shell:$PATH"
