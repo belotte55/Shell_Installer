@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+# Don't touch !
+black=$'%{\033[30m%}'
+red=$'%{\033[31m%}'
+green=$'%{\033[32m%}'
+yellow=$'%{\033[33m%}'
+blue=$'%{\033[34m%}'
+purple=$'%{\033[35m%}'
+cyan=$'%{\033[36m%}'
+white=$'%{\033[37m%}'
+reset=$'%{\e[0m%}'
+
+pseudo_color=$blue
+date_color=$green
+path_color=$red
+last_color=$blue
+bar_color=$black
+
+# Modification of PS1
+PS1="${bar_color}$(printf '-%.0s' {1..$COLUMNS})
+${reset}"
+PS1="$PS1${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
+PS1="$PS1 ${last_color}⨕${reset}
+"
