@@ -5,7 +5,10 @@ To use it:
 ```sh
 git clone https://github.com/belotte55/Shell_Installer.git
 cd Shell_Installeur
+# on Linux:
 bash install.sh
+# on MacOS:
+./install.sh
 ```
 The installer can create a .zshrc file, which works with Z Shell (zsh).
 To install it:
