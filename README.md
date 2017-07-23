@@ -5,7 +5,7 @@ To use it:
 ```sh
 git clone https://github.com/belotte55/Shell_Installer.git
 cd Shell_Installeur
-./install.sh
+bash install.sh
 ```
 The installer can create a .zshrc file, which works with Z Shell (zsh).
 To install it:
@@ -13,13 +13,9 @@ To install it:
 chsh -s $(which zsh)
 ```
 ## UPDATES
-#### 09.16.15
-Interface updated.
-## WARNING
-This installer has been created for OS X. Linux's users have to modify some stuff:
-```
-on ~/.zshrc, line 2:
-	fill with your pseudo: PSEUDO="<your pseudo here>"
-on ~/.vim/autoload/myheader.vim, line 64:
-	fill with your email: return "<your email here>"
-```
+#### 17.07.23
+- Added compatibility for Linux
+- Updated Makefile_Creator -> new design
+- Updated iTerms preferences file -> UI improvements
+#### 15.09.16
+- Interface updated.
