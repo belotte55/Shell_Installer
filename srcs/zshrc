@@ -1,27 +1,33 @@
 autoload -U colors && colors
-PSEUDO=
+export PSEUDO=''
 export MAIL="`whoami`@student.42.fr"
 
-# Fix f.lux
-rm -rf ~/Library/Application\ Support/Flux
-rm -rf ~/Library/Containers/com.justgetflux.flux
-mkdir /tmp/Flux 2> /dev/null
-mkdir /tmp/com.justgetflux.flux 2> /dev/null
-ln -s /tmp/Flux ~/Library/Application\ Support/Flux
-ln -s /tmp/com.justgetflux.flux ~/Library/Containers/com.justgetflux.flux
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
 
 # Don't touch !
-if [ "$SHELL" = '/bin/bash' ]; then
-	black=$'\[\033[30m\]'
-	red=$'\[\033[31m\]'
-	green=$'\[\033[32m\]'
-	yellow=$'\[\033[33m\]'
-	blue=$'\[\033[34m\]'
-	purple=$'\[\033[35m\]'
-	cyan=$'\[\033[36m\]'
-	white=$'\[\033[37m\]'
-	reset=$'\[\e[0m\]'
+if [ -d /boot ]; then
+	black=$'\033[30m'
+	red=$'\033[31m'
+	green=$'\033[32m'
+	yellow=$'\033[33m'
+	blue=$'\033[34m'
+	purple=$'\033[35m'
+	cyan=$'\033[36m'
+	white=$'\033[37m'
+	reset=$'\e[0m'
+	alias ls='ls --color'
 else
+	# Fix f.lux
+	rm -rf ~/Library/Application\ Support/Flux
+	rm -rf ~/Library/Containers/com.justgetflux.flux
+	mkdir /tmp/Flux 2> /dev/null
+	mkdir /tmp/com.justgetflux.flux 2> /dev/null
+	ln -s /tmp/Flux ~/Library/Application\ Support/Flux
+	ln -s /tmp/com.justgetflux.flux ~/Library/Containers/com.justgetflux.flux
+
 	black=$'%{\033[30m%}'
 	red=$'%{\033[31m%}'
 	green=$'%{\033[32m%}'
@@ -31,6 +37,7 @@ else
 	cyan=$'%{\033[36m%}'
 	white=$'%{\033[37m%}'
 	reset=$'%{\e[0m%}'
+	alias ls='ls -G'
 fi
 
 pseudo_color=$blue
@@ -40,20 +47,13 @@ last_color=$blue
 bar_color=$black
 
 # Modification of PS1
-if [ "$SHELL" = '/bin/bash' ]; then
-	PS1="${pseudo_color}${PSEUDO}${date_color} [\A] ${path_color}\w ${last_color}⨕${reset} "
-	alias ls='ls --color'
-else
-	PS1="${bar_color}"'--------------------------------------------------------------------------------------
-'"${reset}"
-	PS1="$PS1${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
-	PS1="$PS1 ${last_color}⨕${reset}
+PS1="${bar_color}$(printf '-%.0s' {1..$COLUMNS})
+${reset}"
+PS1="$PS1${pseudo_color}${PSEUDO}${date_color} [%T] ${path_color}%~"
+PS1="$PS1 ${last_color}⨕${reset}
 "
-	alias ls='ls -G'
-fi
 
-HOME=`cd; pwd`
-CUSTOM_PATH="$HOME/Documents/Programs"
+CUSTOM_PATH="~/Documents/Programs"
 
 # Modification of PATH
 PATH="$CUSTOM_PATH/Shell:$PATH"
@@ -72,8 +72,9 @@ alias compile='gcc -Wall -Wextra -Werror -o run *.c'
 alias compiles='gcc -Wall -Wextra -Werror -o run *.c */*.c'
 alias edit="open -a \"Atom\""
 alias mkae="make"
-alias rm='ft_rm'
-alias mysql='/usr/local/mysql/bin/mysql'
+alias amke="make"
+alias amek="make"
+alias maek="make"
 alias logout='ft_logout'
 
 alias Desktop="cd ~/Desktop"
