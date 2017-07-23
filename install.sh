@@ -6,11 +6,11 @@
 #    By: Belotte <Belotte@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2017/07/23 15:25:46 by fbellott         ###   ########.fr        #
+#    Updated: 2017/07/23 16:44:15 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#!/bin/sh
+#!/bin/bash
 
 min_y=6
 max_y=9
@@ -25,7 +25,7 @@ home=`cd; pwd`
 
 clear
 
-echo '\t\tInstallation...'
+echo 'Installation...'
 echo ''
 echo 'Select elements you want to install:'
 echo "(if element is unchecked, it\'s already installed,)"
