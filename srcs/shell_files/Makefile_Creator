@@ -1,16 +1,7 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile_Creator                                   :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: Belotte <fbellott@student.42.fr>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/12/11 11:35:21 by Belotte           #+#    #+#              #
-#    Updated: 2015/12/19 13:29:49 by fbellott         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 #!/bin/bash
+
+# Makefile_Creator					-> generate a Makefile for a program
+# Makefile_Creator <library_name>	-> generate a Makefile to compile a library
 
 # Don't touch !
 white='\033[0;1m'
@@ -63,38 +54,61 @@ fi
 #LIB		= '"$home"'/Documents/Programs/C/Lib/libft.a
 #LIBS_DIR= -L '"$libs"' -I '"$libs"'
 
-echo 'NAME	= '"$name"'
+echo 'SHELL	= bash
+NAME	= '"$name"'
 CC		= gcc
 S_DIR	= '"$s_dir"'
 O_DIR	= '"$o_dir"'
 I_DIR	= '"$i_dir"'
-FLAGS	= -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
+CFLAGS	= -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
 FILES	= '"$files"'
-LIBS_F	= '"$lib"'
 SRC		= $(addprefix $(S_DIR),$(FILES))
 OBJS	= $(addprefix $(O_DIR),$(FILES:.c=.o))
-LIBS	= $(addprefix -L. -l,$(LIBS_F))
+COUNTER	= $$(ls srcs/*.c | wc -l | tr -s " " "." | cut -d"." -f2)
 RM		= rm -f
 
-all: 		$(NAME)
+all:		header $(NAME)
 
-$(NAME): 	$(OBJS) '$mainodir'
-	@'"$rules"'
-	@echo "./'$blue'$(NAME)'$white' created."
-	@echo "'$white'Done."
+$(NAME): 	$(OBJS) $(O_DIR)main.o
+	@tput cnorm
+	@echo ""
+	@echo ""
+	@$(CC) $^ -o $@ $(CFLAGS) || (tput cnorm && exit 1)
+	@echo "./[0;34m$(NAME)[0;38m created."
+	@tput cnorm
 
 $(O_DIR)%.o:		$(S_DIR)%.c
-	@echo "'$yellow'$<'$grey'"\n\t@echo "↪︎- '$green'$@'$white'"
-	@$(CC) $(FLAGS) -c $< -o $@
-'$main_rule'
+	@$(CC) -c $< -o $@ $(CFLAGS) || (tput cnorm && exit 1)
+	@echo -n "."
+
+$(O_DIR)main.o: main.c
+	@$(CC) -c $< -o $@ $(CFLAGS) || (tput cnorm && exit 1)
+	@echo -n "."
+
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(O_DIR)main.o
 
 fclean: 	clean
 	@$(RM) $(NAME)
-	@echo "'$white'Clear."
+	@echo "[0;1mClear."
 
 re:			fclean all
 
-.PHONY: re clean fclean all' > Makefile
+header:
+	@tput civis
+	@clear
+	@echo ""
+	@echo "                     [0;34m  __  __       _        _____ _ _      "
+	@echo "                      |  \/  | __ _| | _____|  ___(_) | ___ "
+	@echo "                      | |\/| |/ _\` | |/ / _ \ |_  | | |/ _ \\"
+	@echo "                      | |  | | (_| |   <  __/  _| | | |  __/"
+	@echo "                      |_|  |_|\__,_|_|\_\___|_|   |_|_|\___|"
+	@echo ""
+	@echo ""
+	@echo "[0;38mCompiling $(NAME)"
+	@echo "[0;31m["
+	@tput cup 9 $$(($(COUNTER) + 2))
+	@echo "][0;36m"
+	@tput cup 9 1
 
+.PHONY: re clean fclean all' > Makefile
