@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2017/07/23 16:44:15 by fbellott         ###   ########.fr        #
+#    Updated: 2017/07/23 16:49:42 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -164,6 +164,10 @@ fi
 
 tput cup $tput_ended 0
 
+source ~/.zshrc
+
+echo 'INSTALLATION DONE'
+echo ''
 echo '################################################################################'
 echo ''
 echo 'lookfor(name|pseudo|phone) [-r] <to_look_for>'
