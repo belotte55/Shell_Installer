@@ -6,7 +6,7 @@
 #    By: Belotte <Belotte@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/16 10:16:37 by Belotte           #+#    #+#              #
-#    Updated: 2017/07/23 15:21:24 by fbellott         ###   ########.fr        #
+#    Updated: 2017/07/23 15:25:46 by fbellott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,8 +118,8 @@ if [[ ${values[0]} == true ]]; then
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
 	cp srcs/zshrc ~/.zshrc
-	read "pseudo?What's your pseudo ?"
-	vim -e -c ":%s/PSEUDO='.*'/PSEUDO='${pseuod}'/" -c ':wq' ~/.zshrc
+	read -p "What's your pseudo ?"$'\n' pseudo
+	vim -e -c ":%s/PSEUDO='.*'/PSEUDO='${pseudo}'/" -c ':wq' ~/.zshrc
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
