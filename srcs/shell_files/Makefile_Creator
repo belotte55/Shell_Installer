@@ -22,15 +22,14 @@ mainodir='$(O_DIR)main.o'
 home=`cd; pwd`
 lib=`ls *.a 2> /dev/null | cut -d'.' -f1 | cut -d'b' -f2`
 lib=`echo $lib`
-main_rule="\n"'$(O_DIR)main.o:	main.c'"\n\t"'@echo "'$yellow'$<'$grey'"\n\t@echo "↪︎-   '$green'$@'$white'"'"\n\t"'@$(CC) $(FLAGS) -c $< -o $@'"\n"
 files=`ls srcs/*.c 2> /dev/null | cut -d'/' -f2 | tr '\n' ' '`
+x=2
 if [[ $files == "" ]]; then
 	files=`ls *.c | tr '\n' ' '`
 	s_dir=''
 	o_dir=''
 	i_dir=''
 	main=''
-	main_rule=''
 	mainodir=''
 else
 	if [[ ! -d objs ]]; then
@@ -44,8 +43,8 @@ rules='$(CC) $(FLAGS) $(LIBS) $^ -o $@'
 if [[ "$1" != '' ]]; then
 	name=$1
 	rules='ar rc $(NAME) $(OBJS); ranlib $@'
-	main_rule=''
 	mainodir=''
+	x=1
 else
 	name='run'
 fi
@@ -69,11 +68,11 @@ RM		= rm -f
 
 all:		header $(NAME)
 
-$(NAME): 	$(OBJS) $(O_DIR)main.o
+$(NAME): 	$(OBJS) '"$mainodir"'
 	@tput cnorm
 	@echo ""
 	@echo ""
-	@$(CC) $^ -o $@ $(CFLAGS) || (tput cnorm && exit 1)
+	@'"$rules"' || (tput cnorm && exit 1)
 	@echo "./[0;34m$(NAME)[0;38m created."
 	@tput cnorm
 
@@ -107,7 +106,7 @@ header:
 	@echo ""
 	@echo "[0;38mCompiling $(NAME)"
 	@echo "[0;31m["
-	@tput cup 9 $$(($(COUNTER) + 2))
+	@tput cup 9 $$(($(COUNTER) + '"$x"'))
 	@echo "][0;36m"
 	@tput cup 9 1
 
