@@ -82,3 +82,6 @@ alias Desktop="cd ~/Desktop"
 # Commandes lancées au démarrage
 clear
 cd
+
+# protection against "echo 'exit' >> ~/.zshrc"
+: \
