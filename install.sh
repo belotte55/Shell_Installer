@@ -12,6 +12,8 @@
 
 #!/bin/bash
 
+DIR=`dirname "$BASH_SOURCE"`
+
 min_y=6
 max_y=9
 
@@ -117,7 +119,7 @@ if [[ ${values[0]} == true ]]; then
 	fi
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	cp srcs/zshrc ~/.zshrc
+	cp $DIR/srcs/zshrc ~/.zshrc
 	read -p "What's your pseudo ?"$'\n' pseudo
 	vim -e -c ":%s/PSEUDO='.*'/PSEUDO='${pseudo}'/" -c ':wq' ~/.zshrc
 	tput cup $tput_y $tput_done
@@ -130,7 +132,7 @@ if [[ ${values[1]} == true ]]; then
 	if [[ -e $home/.vimrc ]]; then
 		rm $home/.vimrc
 	fi
-	cp srcs/vimrc $home/.vimrc
+	cp $DIR/srcs/vimrc $home/.vimrc
 	echo "source $home/.vim/autoload/stdheader.vim" >> $home/.vimrc
 	echo "source $home/.vim/autoload/myheader.vim" >> $home/.vimrc
 	tput cup $tput_y $tput_done
@@ -143,10 +145,10 @@ if [[ ${values[2]} == true ]]; then
 	if [[ -d ~/.vim ]]; then
 		rm -rf ~/.vim
 	fi
-	cp -r srcs/vim srcs/vim_tmp
+	cp -r $DIR/srcs/vim $DIR/srcs/vim_tmp
 	tput cup $tput_ended 0
 	tput_ended=$((tput_ended+3))
-	mv srcs/vim_tmp $home/.vim
+	mv $DIR/srcs/vim_tmp $home/.vim
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
@@ -157,7 +159,7 @@ if [[ ${values[3]} == true ]]; then
 	if [[ ! -d '~/Documents/Programs/Shell' ]]; then
 		mkdir -p $home/Documents/Programs/Shell
 	fi
-	cp -nr srcs/shell_files/* $home/Documents/Programs/Shell/
+	cp -nr $DIR/srcs/shell_files/* $home/Documents/Programs/Shell/
 	tput cup $tput_y $tput_done
 	echo '√'
 fi
