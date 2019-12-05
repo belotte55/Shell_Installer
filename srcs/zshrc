@@ -77,7 +77,10 @@ alias amek="make"
 alias maek="make"
 alias logout='ft_logout'
 
-alias Desktop="cd ~/Desktop"
+alias nnode='clear && node'
+alias gs='clear && git status'
+
+alias src='source ~/.zshrc'
 
 # Commandes lancées au démarrage
 clear
